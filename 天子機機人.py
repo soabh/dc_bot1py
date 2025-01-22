@@ -1,4 +1,5 @@
-import discord,subprocess,os,json
+import discord,os,json,time
+import pyautogui as pag
 from discord.ext import commands
 
 intents = discord.Intents.default()
@@ -75,5 +76,15 @@ async def open(ctx,app_name:str):
            await ctx.send(f"無法開啟應用程式 {app_name}，錯誤：{str(e)}")
     else:
         await ctx.send("未找到指定應用程式，請確認名稱是否正確。")
+@bot.command()
+async def kk(ctx):
+    os.startfile("C:\\Users\\User\\AppData\\Local\\Programs\\@universalelectron-shell\\KKBOX.exe")
+    time.sleep(5)
+    pag.moveTo(100,240)
+    pag.click()
+    time.sleep(2)
+    pag.moveTo(650,300)
+    pag.click()
+    await ctx.send(f"幫你開好了寶貝")
 
 bot.run('your token')
